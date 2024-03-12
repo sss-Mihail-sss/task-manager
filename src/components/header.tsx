@@ -3,7 +3,7 @@ import Navbar from '@/components/navbar/navbar';
 
 const Header: React.FC = () => {
   return (
-    <header className='container w-full py-4'>
+    <header className='container w-full'>
       <Navbar />
     </header>
   );

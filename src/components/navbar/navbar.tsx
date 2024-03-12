@@ -1,15 +1,30 @@
 'use client';
 
 import * as React from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { ChevronDownIcon } from '@radix-ui/react-icons';
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import {
+  Bug,
+  CalendarClock,
+  ClipboardList,
+  FileMinus,
+  FileStack,
+  FolderOpenDot,
+  Home,
+  LayoutDashboard,
+  Milestone,
+  UserRound,
+  Users,
+} from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const statuses: { title: string, href: string }[] = [
   {
@@ -36,27 +51,94 @@ const statuses: { title: string, href: string }[] = [
   },
 ];
 
-const Navbar: React.FC = () => {
-  return (
-    <nav>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant='outline' className='w-32 justify-between tracking-wide focus-visible:ring-0'>
-            Tasks
-            <ChevronDownIcon />
-          </Button>
-        </DropdownMenuTrigger>
+const tabs = [
+  {
+    title: 'Home',
+    icon: Home,
+  }, {
+    title: 'Time',
+    icon: CalendarClock,
+  }, {
+    title: 'Tasks',
+    icon: ClipboardList,
+  }, {
+    title: 'Milestones',
+    icon: Milestone,
+  }, {
+    title: 'Projects',
+    icon: FolderOpenDot,
+  }, {
+    title: 'Clients',
+    icon: Users,
+  }, {
+    title: 'Invoices',
+    icon: FileMinus,
+  }, {
+    title: 'People',
+    icon: UserRound,
+  }, {
+    title: 'Dashboard',
+    icon: LayoutDashboard,
+  }, {
+    title: 'Reports',
+    icon: Bug,
+  }, {
+    title: 'Documents',
+    icon: FileStack,
+  },
+];
 
-        <DropdownMenuContent align='start' className='space-y-1'>
+const Navbar: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<number>(0);
+  const [api, setApi] = useState<CarouselApi>();
+
+  const shadowLeft = useRef<HTMLDivElement>(null);
+  const shadowRight = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    // api.reInit({
+    //   dragFree: false,
+    // });
+
+    console.log(api.internalEngine().slideLooper.canLoop());
+  }, [api]);
+
+  useEffect(() => {
+    api?.scrollTo(activeTab);
+  }, [api, activeTab]);
+
+  return (
+    <nav className='font-roboto'>
+      <Carousel opts={{
+        align: 'center',
+        containScroll: 'keepSnaps',
+        dragFree: true,
+        // loop: true,
+      }} plugins={[WheelGesturesPlugin({ forceWheelAxis: 'y' })]} className='relative' setApi={setApi}>
+        {/*<div ref={shadowLeft}*/}
+        {/*  className='absolute top-0 left-0 h-full w-12 z-50 bg-gradient-to-r from-black/35 pointer-events-none to-transparent'></div>*/}
+
+        <CarouselContent className='m-0 gap-4 p-4'>
           {
-            statuses.map(status => <DropdownMenuItem key={`task-link-${status.href}`} asChild>
-              <Link href={`/tasks/${status.href}`} className='cursor-pointer px-4 py-2 font-medium'>
-                {status.title}
-              </Link>
-            </DropdownMenuItem>)
+            tabs.map((tab, index) => (
+              <CarouselItem key={`carousel-item-${index}`} onClick={() => setActiveTab(index)}
+                className={cn('flex flex-col gap-2 cursor-pointer items-center basis-20 sm:basis-24 h-auto p-2 rounded border shadow-md hover:shadow-lg hover:shadow-purple-400 last-of-type:mr-4 transition-shadow', activeTab == index ? 'border-gray-600 shadow-purple-400' : '')}>
+                <tab.icon className='size-4 sm:size-6' />
+                <span className='text-xs sm:text-sm'>{tab.title}</span>
+              </CarouselItem>
+            ))
           }
-        </DropdownMenuContent>
-      </DropdownMenu>
+        </CarouselContent>
+        {/*<div ref={shadowRight}*/}
+        {/*  className='absolute top-0 right-0 h-full w-12 z-50 bg-gradient-to-l from-black/35 pointer-events-none to-transparent'></div>*/}
+        <CarouselPrevious />
+        <CarouselNext />
+
+      </Carousel>
     </nav>
   );
 };
