@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Home",
+    "icon": "Home"
+  },
+  {
+    "title": "Time",
+    "icon": "CalendarClock",
+    "tabs": [
+      {
+        "title": "Report"
+      },
+      {
+        "title": "Add time"
+      },
+      {
+        "title": "Edit time"
+      }
+    ]
+  },
+  {
+    "title": "Tasks",
+    "icon": "ClipboardList"
+  },
+  {
+    "title": "Milestones",
+    "icon": "Milestone"
+  },
+  {
+    "title": "Projects",
+    "icon": "FolderOpenDot"
+  },
+  {
+    "title": "Clients",
+    "icon": "Users"
+  },
+  {
+    "title": "Invoices",
+    "icon": "FileMinus"
+  },
+  {
+    "title": "People",
+    "icon": "UserRound"
+  },
+  {
+    "title": "Dashboard",
+    "icon": "LayoutDashboard"
+  },
+  {
+    "title": "Reports",
+    "icon": "Bug"
+  },
+  {
+    "title": "Documents",
+    "icon": "FileStack"
+  }
+]

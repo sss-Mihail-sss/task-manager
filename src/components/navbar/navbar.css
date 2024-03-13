@@ -1,0 +1,33 @@
+.navbar .carousel-content {
+  @apply h-min m-0 gap-4;
+}
+
+.navbar .carousel-item {
+  @apply relative flex flex-col gap-2 cursor-pointer items-center basis-20 sm:basis-24 h-auto p-2 rounded border shadow last-of-type:mr-4 transition-all hover:shadow-md hover:shadow-purple-400 hover:border-purple-700;
+}
+
+/*.navbar .carousel-item:after,*/
+/*.navbar .carousel-item:before {*/
+/*  content: '';*/
+/*  @apply absolute h-1.5 w-3 border-2 border-purple-700 bg-white transition-[all];*/
+/*}*/
+
+/*.navbar .carousel-item:after {*/
+/*  @apply right-2 top-0 -translate-y-1/2;*/
+/*}*/
+
+/*.navbar .carousel-item:hover:after {*/
+/*  @apply right-3/4;*/
+/*}*/
+
+/*.navbar .carousel-item:before {*/
+/*  @apply left-2 bottom-0 translate-y-1/2;*/
+/*}*/
+
+/*.navbar .carousel-item:hover:before {*/
+/*  @apply left-3/4;*/
+/*}*/
+
+.navbar .carousel-item.active {
+  @apply border-gray-600 shadow-purple-400
+}

@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import { montserrat } from '@/app/fonts';
 
 const config = {
   darkMode: ['class'],
@@ -7,7 +6,7 @@ const config = {
   prefix: '',
   theme: {
     container: {
-      center: true, padding: '2rem', screens: {
+      center: true, padding: '1rem', screens: {
         '2xl': '1400px',
       },
     }, extend: {
