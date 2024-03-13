@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 import './navbar.css';
 import tabs from '@/data/menu.json';
-import { useSettings } from '@/context/setting';
 import MenuCarousel, { MenuItemInterface } from '@/components/navbar/menu-carousel';
 
 export interface MenuInterface extends MenuItemInterface {
@@ -38,8 +37,6 @@ const statuses: { title: string, href: string }[] = [
 ];
 
 const Navbar: React.FC = () => {
-  const { settings } = useSettings();
-
   const [activeTab, setActiveTab] = useState<number | null>(1);
 
   const changeActiveTab = (key: number) => {
