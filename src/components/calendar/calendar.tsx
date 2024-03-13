@@ -8,7 +8,7 @@ const Calendar: React.FC = () => {
   lastOfWeek.setDate(lastOfWeek.getDate() + 6);
 
   return (
-    <div className='w-full h-auto border'>
+    <div className='w-full h-auto'>
       {
         Array.from(Array(6), (e, number) => {
           return <></>;

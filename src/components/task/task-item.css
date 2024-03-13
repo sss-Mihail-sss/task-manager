@@ -1,0 +1,63 @@
+.task {
+  @apply flex flex-col gap-4 rounded border shadow md:flex-row w-full justify-between items-stretch hover:bg-transparent h-auto p-4 shadow-gray-600;
+}
+
+.task .task-left {
+  @apply flex flex-col gap-2 justify-between items-start;
+}
+
+.task .task-right {
+  @apply flex flex-col gap-x-4 sm:flex-row md:flex-col items-start justify-between flex-shrink-0;
+}
+
+.task .task-right > span {
+  @apply w-full flex justify-between;
+}
+
+.task[data-state=critical] {
+  @apply shadow-red-900;
+}
+
+.task[data-state=critical] .task-right .time-remaining .value {
+  @apply text-red-900;
+}
+
+.task[data-state=error] {
+  @apply shadow-red-600;
+}
+
+.task[data-state=error] .time-remaining .value {
+  @apply text-red-600;
+}
+
+.task[data-state=warning] {
+  @apply shadow-orange-600;
+}
+
+.task[data-state=warning] .task-right .time-remaining .value {
+  @apply text-orange-400;
+}
+
+.task[data-state=success] {
+  @apply shadow-green-600;
+}
+
+.task[data-state=success] .task-right .time-remaining .value {
+  @apply text-green-600;
+}
+
+.task .task-right .time-estimate {
+  @apply text-xs text-gray-700;
+}
+
+.task .task-right .time-actual {
+  @apply text-xs text-gray-700;
+}
+
+.task .task-right .time-remaining {
+  @apply text-xs text-gray-700;
+}
+
+.task .task-right .time-remaining .value {
+  @apply inline-flex justify-end w-8 font-bold font-jetBrains text-green-600;
+}

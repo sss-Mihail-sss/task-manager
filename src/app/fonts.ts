@@ -1,4 +1,4 @@
-import { Inter, Montserrat, Open_Sans, Roboto } from 'next/font/google';
+import { Inter, JetBrains_Mono, Montserrat, Open_Sans, Roboto } from 'next/font/google';
 
 export const inter = Inter({
   subsets: ['latin'], display: 'swap', variable: '--font-inter',
@@ -21,4 +21,10 @@ export const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-montserrat',
+});
+
+export const jetBrains = JetBrains_Mono({
+  subsets: ['cyrillic'],
+  display: 'swap',
+  variable: '--jet-brains',
 });

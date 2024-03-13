@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import React from 'react';
-import { inter, montserrat, openSans, roboto } from '@/app/fonts';
+import { inter, jetBrains, montserrat, openSans, roboto } from '@/app/fonts';
 import Header from '@/components/header';
 import { cn } from '@/lib/utils';
 import Providers from '@/app/providers';
@@ -17,12 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(inter.variable, roboto.variable, openSans.variable, montserrat.variable)}>
+    <html lang="en"
+      className={cn(inter.variable, roboto.variable, openSans.variable, montserrat.variable, jetBrains.variable)}>
     <body className="font-inter flex flex-col min-h-screen justify-between">
     <Providers>
       <Header />
 
-      <main className="flex-grow">
+      <main className="container py-4 flex-grow">
         {children}
       </main>
 

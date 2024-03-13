@@ -3,7 +3,11 @@
 }
 
 .navbar .carousel-item {
-  @apply relative flex flex-col gap-2 cursor-pointer items-center basis-20 sm:basis-24 h-auto p-2 rounded border shadow last-of-type:mr-4 transition-all hover:shadow-md hover:shadow-purple-400 hover:border-purple-700;
+  @apply relative cursor-pointer basis-20 sm:basis-24 h-auto rounded border shadow last-of-type:mr-4 transition-all hover:shadow-md hover:shadow-purple-400 hover:border-purple-700 p-0;
+}
+
+.navbar .carousel-item > a {
+  @apply flex flex-col gap-2 items-center w-full p-2;
 }
 
 /*.navbar .carousel-item:after,*/

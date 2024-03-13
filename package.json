@@ -24,6 +24,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cross-env": "^7.0.3",
+    "decimal.js": "^10.4.3",
     "embla-carousel-react": "^8.0.0",
     "embla-carousel-wheel-gestures": "^8.0.0-rc05",
     "lucide-react": "^0.356.0",

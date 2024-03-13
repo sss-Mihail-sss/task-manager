@@ -15,6 +15,7 @@ const config = {
         roboto: ['var(--font-roboto)'],
         openSans: ['var(--font-open-sans)'],
         montserrat: ['var(--font-montserrat)'],
+        jetBrains: ['var(--jet-brains)'],
       },
       colors: {
         border: 'hsl(var(--border))',

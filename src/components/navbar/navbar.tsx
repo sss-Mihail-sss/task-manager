@@ -5,11 +5,8 @@ import { useState } from 'react';
 
 import './navbar.css';
 import tabs from '@/data/menu.json';
-import MenuCarousel, { MenuItemInterface } from '@/components/navbar/menu-carousel';
-
-export interface MenuInterface extends MenuItemInterface {
-  tabs?: MenuInterface[];
-}
+import MenuCarousel from '@/components/navbar/menu-carousel';
+import { usePathname } from 'next/navigation';
 
 const statuses: { title: string, href: string }[] = [
   {
@@ -37,7 +34,8 @@ const statuses: { title: string, href: string }[] = [
 ];
 
 const Navbar: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<number | null>(1);
+  const pathname = usePathname();
+  const [activeTab, setActiveTab] = useState<number | null>(tabs.findIndex(tab => tab.href == pathname));
 
   const changeActiveTab = (key: number) => {
     if (activeTab == key) {
@@ -49,9 +47,9 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="font-roboto navbar">
-      <MenuCarousel tabs={tabs} activeTab={activeTab} changeActiveTab={changeActiveTab} />
+      <MenuCarousel tabs={tabs} activeTab={activeTab} changeActiveTab={changeActiveTab} className="border-b-2" />
       <MenuCarousel tabs={activeTab && tabs[activeTab] ? tabs[activeTab]?.tabs : []} variant="sm"
-        className="[&_.carousel-content]:transition-all" />
+        className="border-b-2 h-min transition-all" />
     </nav>
   );
 };

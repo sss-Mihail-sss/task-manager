@@ -9,13 +9,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 
-
 const Settings: React.FC = () => {
   const { settings, updateSettings } = useSettings();
 
   return (
     <Sheet>
-      <SheetTrigger className="absolute top-1/2 right-0" asChild>
+      <SheetTrigger className="absolute bottom-2 right-2" asChild>
         <Button size="icon" className="p-2 h-auto w-auto">
           <Icon name={'Settings'} />
         </Button>

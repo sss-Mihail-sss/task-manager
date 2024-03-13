@@ -1,57 +1,71 @@
 [
   {
     "title": "Home",
-    "icon": "Home"
+    "icon": "Home",
+    "href": "/"
   },
   {
     "title": "Time",
     "icon": "CalendarClock",
+    "href": "/time",
     "tabs": [
       {
-        "title": "Report"
+        "title": "Report",
+        "href": "/time/report"
       },
       {
-        "title": "Add time"
+        "title": "Add time",
+        "href": "/time/add"
       },
       {
-        "title": "Edit time"
+        "title": "Edit time",
+        "href": "/time/edit"
       }
     ]
   },
   {
     "title": "Tasks",
-    "icon": "ClipboardList"
+    "icon": "ClipboardList",
+    "href": "/task"
   },
   {
     "title": "Milestones",
-    "icon": "Milestone"
+    "icon": "Milestone",
+    "href": "/milestones"
   },
   {
     "title": "Projects",
-    "icon": "FolderOpenDot"
+    "icon": "FolderOpenDot",
+    "href": "/projects"
   },
   {
     "title": "Clients",
-    "icon": "Users"
+    "icon": "Users",
+    "href": "/clients"
   },
   {
     "title": "Invoices",
-    "icon": "FileMinus"
+    "icon": "FileMinus",
+    "href": "/invoices"
   },
   {
     "title": "People",
-    "icon": "UserRound"
+    "icon": "UserRound",
+    "href": "/people"
   },
   {
     "title": "Dashboard",
-    "icon": "LayoutDashboard"
+    "icon": "LayoutDashboard",
+    "href": "/dashboard"
   },
   {
     "title": "Reports",
-    "icon": "Bug"
+    "icon": "Bug",
+    "href": "/reports"
   },
   {
     "title": "Documents",
-    "icon": "FileStack"
+    "icon": "FileStack",
+    "href": "/documents"
   }
 ]

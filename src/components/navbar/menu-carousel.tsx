@@ -12,6 +12,7 @@ import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { cn } from '@/lib/utils';
 import Icon from '@/components/icon';
 import { useSettings } from '@/context/setting';
+import Link from 'next/link';
 
 export interface MenuCarouselInterface {
   tabs?: MenuItemInterface[];
@@ -24,6 +25,7 @@ export interface MenuCarouselInterface {
 export interface MenuItemInterface {
   title: string;
   icon?: string;
+  href: string;
 }
 
 const carouselOptions: CarouselOptions = {
@@ -61,10 +63,12 @@ const MenuCarousel: React.FC<MenuCarouselInterface> = ({
         tabs?.map((tab, index) => (
           <CarouselItem key={`carousel-item-${index}`} onClick={() => changeActiveTab(index)}
             className={cn('carousel-item', activeTab == index ? 'active' : '')}>
-            {
-              settings.navbarIcons && tab.icon && <Icon name={tab.icon} className="size-6" strokeWidth={1.25} />
-            }
-            <span className={cn('text-xs sm:text-sm', variant == 'sm' ? 'sm:text-xs' : '')}>{tab.title}</span>
+            <Link href={tab.href}>
+              {
+                settings.navbarIcons && tab.icon && <Icon name={tab.icon} className="size-6" strokeWidth={1.25} />
+              }
+              <span className={cn('text-xs sm:text-sm', variant == 'sm' ? 'sm:text-xs' : '')}>{tab.title}</span>
+            </Link>
           </CarouselItem>
         ))
       }
